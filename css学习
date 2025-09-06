@@ -27,3 +27,24 @@ border: 5px solid darkblue;设定元素的边框样式：5px：边框宽度为 5
 }
 背景图片只显示一次：  background-repeat: no-repeat;
 图片的靠近方向和距离：background-position: right 40px;
+
+
+
+translate() 用于水平或垂直移动某物，
+rotate() 用于旋转某物，
+scale() 用于放大或缩小某物。
+
+伪元素：必定要content，且用双引号，在选中元素末尾加上
+.box::after {
+  content: "这是个字符串。我知道是这样是因为 CSS 中用引号包裹了它们。";
+}
+
+.wrapper > * {            所有直接子元素
+  margin: 20px;            外边距20px
+}
+
+ border: 5px solid darkblue;       一次性简写属性（边框宽度，边框样式，颜色）
+
+body {
+  font: 1.2em sans-serif;          简写属性，字体大小，字体族
+}
