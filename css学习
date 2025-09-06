@@ -9,6 +9,7 @@ px	像素	1px ≈ 0.2646mm
 
 弧度: border-radius: 0.5em;
 直角：border-radius: 0;
+单独一个角：border-top-right-radius: 10% 30%;
 内边框： padding: 10px;
 外边框：margin: 0.5em 0;
 背景色：background-color
@@ -48,3 +49,23 @@ scale() 用于放大或缩小某物。
 body {
   font: 1.2em sans-serif;          简写属性，字体大小，字体族
 }
+
+当文字数量过多时，可以用min-或者max-来修饰长宽高
+  min-height: 100px;
+
+1vh 等于视口高度的 1%，1vw 则为视口宽度的 1%
+
+display: flex;     创建弹性容器----->较难
+
+background-repeat 属性用于控制图像的平铺行为。可用的值是：
+no-repeat——阻止背景重复平铺。
+repeat-x——仅水平方向上重复平铺。
+repeat-y——仅垂直方向上重复平铺。
+repeat——默认值，在水平和垂直两个方向重复平铺。
+
+控制溢出：
+盒子上设置 overflow: hidden----->隐藏溢出
+          overflow: scroll----->用滚动条显示文本 overflow-y: scroll 只在y方向上
+          overflow: auto  ----->此时由自动决定是否显示滚动条
+          object-fit             控制大小让图片适应盒子大小
+          object-fill             图像装满盒子
