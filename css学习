@@ -79,3 +79,6 @@ input[type="submit"]:focus {        tab建到按钮时触发
 
 input[type="text"],          设置为文本输入
 input[type="email"] {}        设置为邮箱输入
+
+
+
