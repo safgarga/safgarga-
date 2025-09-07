@@ -69,3 +69,13 @@ repeat——默认值，在水平和垂直两个方向重复平铺。
           overflow: auto  ----->此时由自动决定是否显示滚动条
           object-fit             控制大小让图片适应盒子大小
           object-fill             图像装满盒子
+
+
+input[type="submit"]:hover,        鼠标点击时触发
+input[type="submit"]:focus {        tab建到按钮时触发
+  background-color: #333;
+}
+
+
+input[type="text"],          设置为文本输入
+input[type="email"] {}        设置为邮箱输入
