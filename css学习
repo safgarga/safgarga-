@@ -81,4 +81,5 @@ input[type="text"],          设置为文本输入
 input[type="email"] {}        设置为邮箱输入
 
 
-
+字体种类：
+serif,sans-serif,monospace,cursive,fantasy
