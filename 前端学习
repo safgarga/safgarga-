@@ -203,3 +203,9 @@ margin-left
 
 display: inline-block;：兼具两者优势，既能并排显示，又能精确控制尺寸和间距
 用于设置<a> 和 <span>的大小方便点击
+
+盒子输入的代码
+ <div><label for="name">Name</label> <input id="name" type="text" /></div>
+  <div><label for="email">Email</label> <input id="email" type="email" /></div>
+按钮代码
+<div class="buttons"><input type="submit" value="Submit" /></div>
