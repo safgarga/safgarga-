@@ -83,3 +83,21 @@ input[type="email"] {}        设置为邮箱输入
 
 字体种类：
 serif,sans-serif,monospace,cursive,fantasy
+
+
+reversed 属性将使列表反向计数：
+<ol start="4" reversed>
+  <li>Toast pita, leave to cool, then slice down the edge.</li>
+  <li>
+    Fry the halloumi in a shallow, non-stick pan, until browned on both sides.
+  </li>
+  <li>Wash and chop the salad.</li>
+  <li>Fill pita with salad, hummus, and fried halloumi.</li>
+</ol>
+value 属性允许设置列表项指定数值：
+  <li value="2">Toast pita, leave to cool, then slice down the edge.</li>
+
+
+a:link：表示未被访问过的链接
+a:visited：表示已被访问过的链接
+a:focus：表示获得焦点的链接
