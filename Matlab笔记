@@ -1,0 +1,5 @@
+J=demosaic(I,'bggr')      将bayer转换成真彩色图片
+rgb=tonemap(hdr,'AdjustLightness',[0.1 1],'AdjustLightness',1.5)      将hdr转换成真彩色图片
+rgb=ind2rgb(X,map)      索引图像转换成真彩图像    X:索引矩阵 map：颜色映照表
+[X,map]=gray2ind(I,16)      灰度图转索引图
+k=mat2gray(J)       矩阵转换成灰度图片
