@@ -4,4 +4,24 @@ rgb=ind2rgb(X,map)      索引图像转换成真彩图像    X:索引矩阵 map�
 [X,map]=gray2ind(I,16)      灰度图转索引图
 k=mat2gray(J)       矩阵转换成灰度图片
 卷积：用一个小一点的矩阵对一个大的矩阵一次对每一个方框计算的结果
+k=histeq(I)        直方图均衡化
+
+直方图规定化：
+是不是规定化就是按照一个标准把每一个图像灰度进行修改为规定的
+1：计算直方图    [h,x]=imhist(I)   [h1,x]=imhist(I1)    //I为图像，I1为标准
+2:执行直方图均衡化    J1=histeq(I,h1)
+
+k=imadd(i,j)      两个图像重叠
+j=imnoise(k,'gaussian',0.15);      添加噪声--变得不清楚
+b=imopen(i,strel('disk',15));ip=imsubtract(i,b);      减去背景图像
+j=immultiply(i,0.5)        图像每一个像素乘以一个常数
+j=imdivide(i,0.5)        图像每一个像素除以一个常数
+j=imcomplement(i)        图像每一个像素点的补
+s=roipoly;              选择图像区域
+s=roicolor(x,10,20)      显示10，20区域内的掩膜图像----有像素的为白色，没有的为黑色
+        图像邻域操作----去噪声，降低细节
+b=nlfilter(i, [3, 3], @(x) max(x(:)))        滑动最大值处理
+s=blockproc(i,[100,100],)
+c=[222,272,300,270,221,194]  r=[21,21,75,121,121,75]  j=roifill(i,c,r)        图像填充
+
 
