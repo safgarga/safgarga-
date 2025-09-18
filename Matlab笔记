@@ -24,4 +24,10 @@ b=nlfilter(i, [3, 3], @(x) max(x(:)))        滑动最大值处理
 s=blockproc(i,[100,100],)
 c=[222,272,300,270,221,194]  r=[21,21,75,121,121,75]  j=roifill(i,c,r)        图像填充
 
-
+j=fft2(i)                        图像傅里叶变换
+j=ifft2(j)/255                        傅里叶逆变换
+j=fftshift(i)                        傅里叶变换后中心移动
+j=rgb2gray(i)                        真彩色转换成灰度级亮度图像
+j=im2double(i)                        i变成双精度格式
+j=dct2(i)                                对i二维dct，返回dct系数
+j=idct2(i)                                逆二维dct
