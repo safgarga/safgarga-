@@ -24,10 +24,45 @@ b=nlfilter(i, [3, 3], @(x) max(x(:)))        滑动最大值处理
 s=blockproc(i,[100,100],)
 c=[222,272,300,270,221,194]  r=[21,21,75,121,121,75]  j=roifill(i,c,r)        图像填充
 
-j=fft2(i)                        图像傅里叶变换
+j=fft2(i)                        图像傅里叶变换-----将图形转换成另外一个新式易于压缩
 j=ifft2(j)/255                        傅里叶逆变换
 j=fftshift(i)                        傅里叶变换后中心移动
 j=rgb2gray(i)                        真彩色转换成灰度级亮度图像
 j=im2double(i)                        i变成双精度格式
 j=dct2(i)                                对i二维dct，返回dct系数
 j=idct2(i)                                逆二维dct
+
+
+用相邻像素的差值存储：
+[m, n] = size(img_gray);  
+diff_img = zeros(m, n);   % 创建一个空的存差值的矩阵
+% 第一列没有左边像素，直接存原始值（避免丢失信息）
+diff_img(:, 1) = img_gray(:, 1);
+% 从第二列开始，算“当前像素 - 左边像素”的差值
+for i = 1:m
+    for j = 2:n
+        diff_img(i, j) = img_gray(i, j) - img_gray(i, j-1);
+    end
+end
+
+
+解压：
+recover_img = zeros(m, n);
+recover_img(:, 1) = diff_img(:, 1);  % 第一列直接拿
+for i = 1:m
+    for j = 2:n
+        recover_img(i, j) = recover_img(i, j-1) + diff_img(i, j);
+    end
+end
+
+
+将差不多的像素变成一样的：
+% 量化：把0~255的像素值，按“间隔”合并（间隔越大，丢的细节越多，压缩率越高）
+quant_step = 8;  % 量化间隔（比如8：0-7→4，8-15→12，以此类推）
+quant_img = round(img_gray / quant_step) * quant_step;  % 合并相近值
+
+解压：
+
+图像均衡化：j=histeq(i)
+自动分块均衡化：j=adapthisteq(i)
+
