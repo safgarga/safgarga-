@@ -66,3 +66,5 @@ quant_img = round(img_gray / quant_step) * quant_step;  % 合并相近值
 图像均衡化：j=histeq(i)
 自动分块均衡化：j=adapthisteq(i)
 
+
+
