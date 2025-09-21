@@ -101,3 +101,17 @@ value 属性允许设置列表项指定数值：
 a:link：表示未被访问过的链接
 a:visited：表示已被访问过的链接
 a:focus：表示获得焦点的链接
+
+
+.wrapper > div       指定为div变量里面的wrapper类
+
+display: flex      把这个放在css类里面会自动变换合适的大小
+
+相对于整体的位移    向下向右
+position: relative;            position: absolute;于前面的相反，为向上向左        position: sticky;类似
+top: 30px;
+left: 30px;
+
+position: fixed;      元素保持在固定的位置，不会随着滚动变化
+position: sticky;      类似，只有在出现的时候才会开始不变
+position: relative;    css中盒子的移动的前提
