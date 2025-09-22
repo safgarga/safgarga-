@@ -88,8 +88,8 @@ j=deconvwnr(i,psf)                维纳滤波复原-对运动的图片优化
 j=deconvlucy(i,psf,5)             复原模糊图像        5是迭代次数
 
 盲解卷积函数：
-k = ones(5);                 建立初始核矩阵        如果是运动的模糊k = fspecial('motion', 15, 0);        如果是变焦的模糊k = fspecial('gaussian', 7, 1.5); 
-k =k / sum(k(:));         让矩阵元素和为1                         15为像素量，0为方向                                   7*7的像素有问题，误差为1.5个像素                   
+k = ones(5);                 建立初始核矩阵         如果是运动的模糊k = fspecial('motion', 15, 0);        如果是变焦的模糊k = fspecial('gaussian', 7, 1.5); 
+k =k / sum(k(:));        （ 让矩阵元素和为1）           15为像素量，0为方向                                   7*7的像素有问题，误差为1.5个像素                   
 [j, k] = deconvblind(i, k,s);        s为迭代次数
 
 
