@@ -66,5 +66,30 @@ quant_img = round(img_gray / quant_step) * quant_step;  % 合并相近值
 图像均衡化：j=histeq(i)
 自动分块均衡化：j=adapthisteq(i)
 
+将图像变成运动后的------运动模糊
+psf=fespecial('motion',30,45)
+j=imfilter(i,psf,'circular','conv')
+
+模糊图像=原始图像*psf+噪声
+滤波都是对噪音图像优化处理
+psf=fspecial('average',3)
+j=imfilter(i,psf)                算数均值滤波
+j=exp(imfilter(log(i),psf))        几何均值滤波
+j=medfilt2(i)                        对噪声图像做中值滤波处理
+[k,noise]=wiener2(i,[5,5])              自适应滤波，i只能是单色的
+
+p = cat(3, p_r, p_g, p_b);        将三个单一的像素组合
+
+对运动的图片去卷积：
+psf=fspecial('motion',30,45)        建立复原点扩散函数        30是运动长度，看同一个位置的像素变的多长，45是运动方向，向右为0度
+[j,p]=deconvblind(i,psf,30)        去卷积，p->新生成的psf,j->优化后的图片，psf为我自己估计的
+
+j=deconvwnr(i,psf)                维纳滤波复原-对运动的图片优化
+j=deconvlucy(i,psf,5)             复原模糊图像        5是迭代次数
+
+盲解卷积函数：
+k = ones(5);                 建立初始核矩阵        如果是运动的模糊k = fspecial('motion', 15, 0);        如果是变焦的模糊k = fspecial('gaussian', 7, 1.5); 
+k =k / sum(k(:));         让矩阵元素和为1                         15为像素量，0为方向                                   7*7的像素有问题，误差为1.5个像素                   
+[j, k] = deconvblind(i, k,s);        s为迭代次数
 
 
